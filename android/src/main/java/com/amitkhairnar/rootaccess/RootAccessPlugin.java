@@ -10,6 +10,8 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import com.amitkhairnar.rootaccess.EmulatorCheck;
+
 
 /**
  * RootAccessPlugin
@@ -30,6 +32,8 @@ public class RootAccessPlugin implements FlutterPlugin, MethodCallHandler {
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
         if (call.method.equals("isAccessGiven")) {
             result.success(isAccessGiven());
+        } else if (call.method.equals("isRealDevice")) {
+            result.success(!EmulatorCheck.isEmulator());
         } else {
             result.notImplemented();
         }
