@@ -24,7 +24,7 @@ class RootAccess {
     }
   }
   
-  static Future<bool> get isRoot async {
+  static Future<bool> get isRooted async {
     final bool access = await channel.invokeMethod('isAccessGiven');
     return access;
   }
