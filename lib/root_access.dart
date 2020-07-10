@@ -12,12 +12,12 @@ class RootAccess {
   ///
   /// If device is not rooted then this will return `false`.
   /// Else it will open installed superuser or similar app's pop up asking for Permission.
-   static Future<bool> get rootAccess async {
+   static Future<bool> get isRooted async {
     final bool access = await channel.invokeMethod('isAccessGiven');
     return access;
   }
   
-  static Future<bool> get isModifiedAndEmulated async {
+  static Future<bool> get rootAccessReal async {
     final bool isRealDevice = await channel.invokeMethod('isRealDevice');
     if (Platform.isAndroid) {
       final bool isRootAccess = await channel.invokeMethod('isAccessGiven');
@@ -29,7 +29,7 @@ class RootAccess {
     }
   }
    
-  static Future<bool> get isModified async {
+  static Future<bool> get rootAccess async {
     if (Platform.isAndroid) {
       final bool isRootAccess = await channel.invokeMethod('isAccessGiven');
       return isRootAccess;
