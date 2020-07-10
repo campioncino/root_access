@@ -18,8 +18,8 @@ class RootAccess {
       return isRootAccess;
     }
     else{
-      final bool isJailBroken = await _channel.invokeMethod('isJailBroken');
-      final bool isRealDevice = await _channel.invokeMethod('isRealDevice');
+      final bool isJailBroken = await channel.invokeMethod('isJailBroken');
+      final bool isRealDevice = await channel.invokeMethod('isRealDevice');
       return isJailBroken || !isRealDevice;
     }
   }
@@ -30,12 +30,12 @@ class RootAccess {
   }
   
   static Future<bool> get isRealDevice async {
-    final bool isRealDevice = await _channel.invokeMethod('isRealDevice');
+    final bool isRealDevice = await channel.invokeMethod('isRealDevice');
     return isRealDevice;
   }
   
   static Future<bool> get isJailBroken async {
-    final bool isJailBroken = await _channel.invokeMethod('isJailBroken');
+    final bool isJailBroken = await channel.invokeMethod('isJailBroken');
     return isJailBroken;
   }
   
