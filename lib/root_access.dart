@@ -15,7 +15,7 @@ class RootAccess {
   static Future<bool> get rootAccess async {
     if (Platform.isAndroid) {
       final bool isRootAccess = await channel.invokeMethod('isAccessGiven');
-      return access;
+      return isRootAccess;
     }
     else{
       final bool isJailBroken = await _channel.invokeMethod('isJailBroken');
