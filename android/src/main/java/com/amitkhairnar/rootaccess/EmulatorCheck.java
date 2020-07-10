@@ -1,3 +1,5 @@
+package com.amitkhairnar.rootaccess;
+
 import android.os.Build;
 
 public class EmulatorCheck {
